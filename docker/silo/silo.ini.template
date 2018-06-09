@@ -1,0 +1,34 @@
+[Server]
+HttpHost=${SILO_HOST}
+HttpPort=${SILO_PORT}
+SSLCert=${SILO_SSL_CERT}
+SSLKey=${SILO_SSL_KEY}
+
+[Misc]
+MaxDataBytes=${SILO_MAX_DATA_BYTES}
+MaxKeyBytes=${SILO_MAX_KEY_BYTES}
+EncryptionKey=${SILO_ENCRYPTION_KEY}2
+
+[Store]
+Location=${SILO_STORE_LOCATION}
+
+[Role "read"]
+Id=read
+Password=${SILO_ROLE_PASS_READ}
+Get=true
+Put=false
+Del=false
+
+[Role "default"]
+Id=default
+Password=${SILO_ROLE_PASS_READWRITE}
+Get=true
+Put=true
+Del=false
+
+[Role "super"]
+Id=super
+Password=${SILO_ROLE_PASS_ALL}
+Get=true
+Put=true
+Del=true

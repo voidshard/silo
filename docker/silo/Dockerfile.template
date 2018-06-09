@@ -1,0 +1,16 @@
+FROM golang:1.8
+
+# depends
+RUN go get github.com/gtank/cryptopasta
+RUN go get gopkg.in/gcfg.v1
+
+# copy in and build silo
+RUN mkdir -p ${DOCKER_GOPATH}/src/github.com/voidshard/silo
+WORKDIR ${DOCKER_GOPATH}/src/github.com/voidshard/silo
+ADD build/ .
+RUN go build -o silo ${DOCKER_GOPATH}/src/github.com/voidshard/silo/cmd/silo/*.go
+
+EXPOSE ${SILO_PORT}
+
+# go!
+ENTRYPOINT ["./silo"]
