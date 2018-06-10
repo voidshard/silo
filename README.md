@@ -9,7 +9,7 @@ Silo is a bare bones as-simple-as-possible key-data store, where 'data' is simpl
 
 ## Why
 
-I needed a simple way to allow a set of workers to read & write file(s) that they can all then fetch for a home project.
+I needed a way to read & write resources over the network for a home project.
 
 ## Before You Start
 
